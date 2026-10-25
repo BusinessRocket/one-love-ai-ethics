@@ -1,0 +1,49 @@
+name: "🙋 Join the circle"
+description: Introduce yourself and be added to MEMBERS.md
+title: "Join: "
+labels: ["member"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome! 🙏 Everything you write here is **public**. Share only what you're comfortable with.
+  - type: input
+    id: name
+    attributes:
+      label: Name or nickname
+    validations:
+      required: true
+  - type: input
+    id: place
+    attributes:
+      label: City or country (optional)
+  - type: input
+    id: practice
+    attributes:
+      label: Practice or tradition (optional)
+      placeholder: e.g. Vipassana, Drukpa Kagyu, Ashtanga yoga, curious beginner
+  - type: input
+    id: intention
+    attributes:
+      label: One line of intention to share with the circle
+    validations:
+      required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: How would you like to take part? (optional)
+      options:
+        - label: Suggest or review questions
+        - label: Translate
+        - label: Review facts about a tradition I know well
+        - label: Review AI / law case studies
+        - label: Code (scripts, website)
+        - label: Join online group sits in Discussions
+  - type: checkboxes
+    id: add
+    attributes:
+      label: Listing
+      options:
+        - label: Please add me to MEMBERS.md
+        - label: I agree to the Code of Conduct
+          required: true

@@ -1,0 +1,25 @@
+name: "✏️ Correction"
+description: Report a factual error, outdated case status or unclear answer
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where is it?
+      placeholder: e.g. Q57, docs/us-ai-case-studies-2026.md case 8
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix and source
+      description: Please include a reliable source and its date.
+    validations:
+      required: true

@@ -1,0 +1,27 @@
+name: Validate dataset
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the Markdown source
+        run: python scripts/build_dataset.py --check
+      - name: Check jsonl and csv are rebuilt
+        run: |
+          python scripts/build_dataset.py
+          if ! git diff --quiet -- dataset/qa-112.jsonl dataset/qa-112.csv; then
+            echo "::error::dataset/qa-112.jsonl or .csv is out of date. Run: python scripts/build_dataset.py and commit the result."
+            exit 1
+          fi

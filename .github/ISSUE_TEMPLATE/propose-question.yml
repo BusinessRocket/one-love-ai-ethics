@@ -1,0 +1,48 @@
+name: "❓ Propose a question"
+description: Suggest a new question and answer for the dataset
+title: "Question: "
+labels: ["dataset"]
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Question
+      placeholder: Ends with a question mark?
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - patanjali
+        - yoga-practice
+        - buddha
+        - padmasambhava
+        - milarepa
+        - meditation-safety
+        - ai-ethics
+        - us-case-studies
+        - community
+  - type: textarea
+    id: answer
+    attributes:
+      label: Suggested answer (in your own words)
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or lineage
+      description: Text and verse, teacher, book, court record or article link.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: This is my own wording, not copied from a copyrighted translation or article
+          required: true
+        - label: It contains no restricted practice instructions or unsafe advice
+          required: true
